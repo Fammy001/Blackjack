@@ -3,7 +3,6 @@ from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import * 
 from PyQt5 import uic, QtCore
 import database
-import random
 import sys
 
 userdata = {}
@@ -55,6 +54,7 @@ class LoginUi(QWidget):
 		self.signupButton = self.findChild(QPushButton, "signupb")
 		self.usernameField = self.findChild(QLineEdit, "username")
 		self.passwordField = self.findChild(QLineEdit, "password")
+		self.passwordField.setEchoMode(QLineEdit.Password)
 
 		# assiging login Button function
 		self.loginButton.clicked.connect(self.checklogin)
@@ -96,8 +96,10 @@ class SignupUi(QWidget):
 		self.loginButton = self.findChild(QPushButton, "loginb")
 		self.signupButton = self.findChild(QPushButton, "signupb")
 		self.usernameField = self.findChild(QLineEdit, "username")
-		self.passwordField = self.findChild(QLineEdit, "password")
 		self.confirmpass = self.findChild(QLineEdit, "confirmPass")
+		self.confirmpass.setEchoMode(QLineEdit.Password)
+		self.passwordField = self.findChild(QLineEdit, "password")
+		self.passwordField.setEchoMode(QLineEdit.Password)
 
 		# applying functions to buttons
 		self.signupButton.clicked.connect(self.singup)
